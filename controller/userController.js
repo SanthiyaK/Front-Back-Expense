@@ -11,9 +11,9 @@ exports.getUser= async(req,res)=>{
 }
 
 exports.postUser=async(req,res)=>{
-  const {name,age,college}=req.body;
+  const {title,amount}=req.body;
   try {
-    const newUser=new userModel({name,age,college})
+    const newUser=new userModel({title,amount})
     await newUser.save()
     res.status(201).json(newUser)
   } catch (error) {
@@ -34,11 +34,11 @@ const deleted= await userModel.findByIdAndDelete(id)
 
 exports.updateUser = async (req, res) => {
   try {
-    const { name, age,college } = req.body;
+    const { title,amount } = req.body;
     const id = req.params.id;
     const updatedPerson = await userModel.findByIdAndUpdate(
       id,
-      { name, age,college},
+      { title,amount},
       { new: true }
     );
     if (!updatedPerson) {

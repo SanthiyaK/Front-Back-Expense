@@ -1,9 +1,8 @@
 const mongoose=require("mongoose")
 
 const userSchema=new mongoose.Schema({
-   name: { type: String, required: true },
-   age: { type: Number} ,
-   college:{type:String} 
+   title: { type: String, required: true },
+   amount: { type: Number}    
 })
 
 module.exports = mongoose.model("User", userSchema);
